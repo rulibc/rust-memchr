@@ -61,13 +61,13 @@ mod x86;
 
 /// An iterator over all occurrences of the needle in a haystack.
 #[inline]
-pub fn memchr_iter(needle: u8, haystack: &[u8]) -> Memchr {
+pub fn memchr_iter(needle: u8, haystack: &[u8]) -> Memchr<'_> {
     Memchr::new(needle, haystack)
 }
 
 /// An iterator over all occurrences of the needles in a haystack.
 #[inline]
-pub fn memchr2_iter(needle1: u8, needle2: u8, haystack: &[u8]) -> Memchr2 {
+pub fn memchr2_iter(needle1: u8, needle2: u8, haystack: &[u8]) -> Memchr2<'_> {
     Memchr2::new(needle1, needle2, haystack)
 }
 
@@ -78,13 +78,13 @@ pub fn memchr3_iter(
     needle2: u8,
     needle3: u8,
     haystack: &[u8],
-) -> Memchr3 {
+) -> Memchr3<'_> {
     Memchr3::new(needle1, needle2, needle3, haystack)
 }
 
 /// An iterator over all occurrences of the needle in a haystack, in reverse.
 #[inline]
-pub fn memrchr_iter(needle: u8, haystack: &[u8]) -> Rev<Memchr> {
+pub fn memrchr_iter(needle: u8, haystack: &[u8]) -> Rev<Memchr<'_>> {
     Memchr::new(needle, haystack).rev()
 }
 
@@ -94,7 +94,7 @@ pub fn memrchr2_iter(
     needle1: u8,
     needle2: u8,
     haystack: &[u8],
-) -> Rev<Memchr2> {
+) -> Rev<Memchr2<'_>> {
     Memchr2::new(needle1, needle2, haystack).rev()
 }
 
@@ -105,7 +105,7 @@ pub fn memrchr3_iter(
     needle2: u8,
     needle3: u8,
     haystack: &[u8],
-) -> Rev<Memchr3> {
+) -> Rev<Memchr3<'_>> {
     Memchr3::new(needle1, needle2, needle3, haystack).rev()
 }
 
